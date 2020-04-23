@@ -1,26 +1,26 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      <ul>
-        <li *ngFor="let weather of weatherData">
-          {{weather.main}}, {{weather.description}} <img src="https://openweathermap.org/img/wn/{{ weather.icon }}@2x.png"></li>
-      </ul>
-    </ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Current Weather</ion-title>
+    <ion-chip slot="end">
+      <ion-avatar *ngFor="let weather of weatherData">
+        <img src="https://openweathermap.org/img/wn/{{ weather.icon }}@2x.png">
+      </ion-avatar>
+      <ion-label >{{userName}}</ion-label>
+    </ion-chip>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
 
-  <div id="container">
-    <strong>Hello</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer"
-        href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+  <ion-item>
+    <ion-input [(ngModel)]="entry"></ion-input><ion-button (click)="onEnter()">Save</ion-button>
+  </ion-item>
+
+  <ion-list>
+    <ion-item [routerLink]="['/weather']">link</ion-item>
+  </ion-list>
 </ion-content>
 <div id="openweathermap-widget-11"></div>
-

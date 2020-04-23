@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start"><ion-back-button></ion-back-button></ion-buttons>
+    <ion-title>Current Weather</ion-title>
+    <ion-chip slot="end">
+      <ion-avatar *ngFor="let weather of weatherData">
+        <img src="https://openweathermap.org/img/wn/{{ weather.icon }}@2x.png">
+      </ion-avatar>
+      <ion-label>{{userName}}</ion-label>
+    </ion-chip>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>  
+    <ion-item *ngFor="let weather of weatherData">
+        <img height="100" width="100" src="https://openweathermap.org/img/wn/{{ weather.icon }}@2x.png">   
+        <h3>{{weather.main}}</h3> 
+        <p>{{weather.description}}</p>
+    </ion-item>
+
+    
+
+</ion-content>

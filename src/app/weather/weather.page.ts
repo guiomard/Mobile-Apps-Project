@@ -1,19 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../Services/data.service'
-import { Storage } from '@ionic/storage';
+import { Storage } from '@ionic/storage'
 
 @Component({
-  selector: 'app-home',
-  templateUrl: 'home.page.html',
-  styleUrls: ['home.page.scss'],
+  selector: 'app-weather',
+  templateUrl: './weather.page.html',
+  styleUrls: ['./weather.page.scss'],
 })
-export class HomePage implements OnInit {
-
+export class WeatherPage implements OnInit {
+  
   weatherData: any = [];
-  entry:String;
+  icon: String;
   userName:String;
 
-  constructor(private dataService: DataService, private storage: Storage) { }
+  constructor(private dataService:DataService, private storage: Storage) {}
 
   ngOnInit(): void {
     this.dataService.GetWeatherData("Galway").subscribe(
@@ -37,11 +37,5 @@ export class HomePage implements OnInit {
         console.log(error);
       }
     )
-  }
-  onEnter() {
-    this.userName = this.entry;
-    this.storage.set("name", this.entry);
-    console.log(this.entry);
-    setTimeout;
   }
 }
