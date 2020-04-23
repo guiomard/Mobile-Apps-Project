@@ -1,7 +1,10 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Blank
+      <ul>
+        <li *ngFor="let weather of weatherData">
+          {{weather.main}}, {{weather.description}} <img src="https://openweathermap.org/img/wn/{{ weather.icon }}@2x.png"></li>
+      </ul>
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -14,7 +17,10 @@
   </ion-header>
 
   <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+    <strong>Hello</strong>
+    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer"
+        href="https://ionicframework.com/docs/components">UI Components</a></p>
   </div>
 </ion-content>
+<div id="openweathermap-widget-11"></div>
+

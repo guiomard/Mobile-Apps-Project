@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
 import { HomePage } from './home.page';
+//import { DataService } from '../services/data.service';
 
 import { HomePageRoutingModule } from './home-routing.module';
 
@@ -16,4 +17,12 @@ import { HomePageRoutingModule } from './home-routing.module';
   ],
   declarations: [HomePage]
 })
-export class HomePageModule {}
+export class HomePageModule {
+
+  weatherData: any = [];
+
+
+  /*constructor(private service: DataService) { }
+
+  */
+}
