@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../Services/data.service'
+import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { Storage } from '@ionic/storage'
 
 @Component({
@@ -10,18 +11,21 @@ import { Storage } from '@ionic/storage'
 export class WeatherPage implements OnInit {
   
   weatherData: any = [];
-  icon: String;
+  weatherDataCoord: any = [];
   userName:String;
+  location:String;
+  entry:String;
 
-  constructor(private dataService:DataService, private storage: Storage) {}
+  constructor(private dataService:DataService, private storage: Storage, private geolocation:Geolocation) {}
+
 
   ngOnInit(): void {
-    this.dataService.GetWeatherData("Galway").subscribe(
-      (data) => {
-        this.weatherData = data.weather;
-        console.log(this.weatherData);
-      }
-    )
+    this.geolocation.getCurrentPosition().then((resp) => {
+      console.log(resp.coords.latitude);
+      console.log(resp.coords.longitude);
+     }).catch((error) => {
+       console.log('Error getting location', error);
+     });
 
     this.storage.get("name").then(
       (data) => {
@@ -37,5 +41,26 @@ export class WeatherPage implements OnInit {
         console.log(error);
       }
     )
+  }
+
+  onEnter(): void {
+    this.location = this.entry;
+    this.dataService.GetWeatherData(this.entry).subscribe(
+      (data) => {
+        this.weatherData = data.weather;
+      }
+    )
+  }
+
+  onEnterGPS(): void {
+    this.geolocation.getCurrentPosition().then((resp) => {
+      this.dataService.GetWeatherDataCoord(resp.coords.latitude, resp.coords.longitude).subscribe(
+      (data) => {
+        this.weatherDataCoord = data.weather;
+      }
+    )
+     }).catch((error) => {
+       console.log('Error getting location', error);
+     });    
   }
 }

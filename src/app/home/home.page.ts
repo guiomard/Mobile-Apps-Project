@@ -38,10 +38,12 @@ export class HomePage implements OnInit {
       }
     )
   }
-  onEnter() {
+
+  onEnter(): void {
     this.userName = this.entry;
     this.storage.set("name", this.entry);
     console.log(this.entry);
-    setTimeout;
+    
+    console.log(this.dataService.GetRandomIcon);
   }
 }

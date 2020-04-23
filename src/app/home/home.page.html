@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
-    <ion-title>Current Weather</ion-title>
+    <ion-title>Weather Application Home Menu</ion-title>
     <ion-chip slot="end">
       <ion-avatar *ngFor="let weather of weatherData">
         <img src="https://openweathermap.org/img/wn/{{ weather.icon }}@2x.png">
@@ -16,7 +16,9 @@
 <ion-content [fullscreen]="true">
 
   <ion-item>
-    <ion-input [(ngModel)]="entry"></ion-input><ion-button (click)="onEnter()">Save</ion-button>
+    <ion-label position="floating">Please enter a username</ion-label>
+    <ion-input [(ngModel)]="entry"></ion-input>
+    <ion-button size="large" slot="end" (click)="onEnter()">Save</ion-button>
   </ion-item>
 
   <ion-list>
