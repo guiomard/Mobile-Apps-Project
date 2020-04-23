@@ -3,10 +3,10 @@
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
-    <ion-title>Worldwide Weather</ion-title>
+    <ion-title>GPS Weather</ion-title>
     <ion-chip slot="end">
       <ion-avatar>
-        <img src="https://openweathermap.org/img/wn/02d@2x.png">
+        <img src="https://openweathermap.org/img/wn/13d@2x.png">
       </ion-avatar>
       <ion-label>{{userName}}</ion-label>
     </ion-chip>
@@ -15,14 +15,10 @@
 
 <ion-content>
   <ion-item>
-    <h3>Please enter a city</h3>
-  </ion-item>
-  <ion-item>
-    <ion-input [(ngModel)]="entry"></ion-input>
-    <ion-button size="default" slot="end" (click)="onEnter()">Enter</ion-button>
+    <ion-button expand="block" (click)="onEnterGPS()">Find your current location's weather via GPS</ion-button>
   </ion-item>
 
-  <ion-item *ngFor="let weather of weatherData">
+  <ion-item *ngFor="let weather of weatherDataCoord">
     <img height="100" width="100" src="https://openweathermap.org/img/wn/{{ weather.icon }}@2x.png">
     <h3>{{weather.main}}, {{weather.description}}</h3>
   </ion-item>

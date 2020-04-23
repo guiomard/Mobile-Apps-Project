@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Weather Maps</ion-title>
+    <ion-chip slot="end">
+      <ion-avatar>
+        <img src="https://openweathermap.org/img/wn/11d@2x.png">
+      </ion-avatar>
+      <ion-label>{{userName}}</ion-label>
+    </ion-chip>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-radio-group [(ngModel)]='mapType'>
+      <ion-list-header>
+        <ion-label>
+          <h1>Map Type</h1>
+        </ion-label>
+      </ion-list-header>
+      <ion-item>
+        <ion-label>Clouds</ion-label>
+        <ion-radio slot="start" value="clouds_new"></ion-radio>
+      </ion-item>
+      <ion-item>
+        <ion-label>Precipitation</ion-label>
+        <ion-radio slot="start" value="precipitation_new"></ion-radio>
+      </ion-item>
+      <ion-item>
+        <ion-label>Sea level pressure</ion-label>
+        <ion-radio slot="start" value="pressure_new"></ion-radio>
+      </ion-item>
+      <ion-item>
+        <ion-label>Wind speed</ion-label>
+        <ion-radio slot="start" value="wind_new"></ion-radio>
+      </ion-item>
+      <ion-item>
+        <ion-label>Temperature</ion-label>
+        <ion-radio slot="start" value="temp_new"></ion-radio>
+      </ion-item>
+    </ion-radio-group>
+  </ion-list>
+  <ion-item>
+    <img src="https://tile.openweathermap.org/map/{{mapType}}/0/0/0.png?appid=ba5c6aa709bd7f88b050b9a75f80ce61">
+  </ion-item>
+</ion-content>
+
+<ion-footer>
+  <ion-item>
+    <img slot="end" height="50px"
+      src="https://openweathermap.org/themes/openweathermap/assets/img/openweather-negative-logo-RGB.png">
+  </ion-item>
+</ion-footer>

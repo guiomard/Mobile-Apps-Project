@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
-    <ion-title>Worldwide Weather</ion-title>
+    <ion-title>Weather Forecast</ion-title>
     <ion-chip slot="end">
       <ion-avatar>
         <img src="https://openweathermap.org/img/wn/02d@2x.png">
@@ -21,12 +21,12 @@
     <ion-input [(ngModel)]="entry"></ion-input>
     <ion-button size="default" slot="end" (click)="onEnter()">Enter</ion-button>
   </ion-item>
-
-  <ion-item *ngFor="let weather of weatherData">
-    <img height="100" width="100" src="https://openweathermap.org/img/wn/{{ weather.icon }}@2x.png">
-    <h3>{{weather.main}}, {{weather.description}}</h3>
-  </ion-item>
-</ion-content>
+  
+  <ion-list >
+    <ion-item *ngFor="let forecast of forecastData">
+      {{forecast.dt}}
+    </ion-item>
+  </ion-list>
 
 <ion-footer>
   <ion-item>

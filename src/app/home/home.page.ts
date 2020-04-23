@@ -43,7 +43,5 @@ export class HomePage implements OnInit {
     this.userName = this.entry;
     this.storage.set("name", this.entry);
     console.log(this.entry);
-    
-    console.log(this.dataService.GetRandomIcon);
   }
 }
