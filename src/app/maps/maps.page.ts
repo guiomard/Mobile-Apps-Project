@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { DataService } from '../Services/data.service'
 import { Storage } from '@ionic/storage'
 
 @Component({
@@ -9,6 +8,7 @@ import { Storage } from '@ionic/storage'
 })
 export class MapsPage implements OnInit {
 
+  //I have it set to one of the options by default so that an image is always being displayed
   mapType: String = "temp_new";
   userName: String;
 

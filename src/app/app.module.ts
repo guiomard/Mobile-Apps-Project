@@ -13,6 +13,7 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 
+//importing in the nessesary plugins and modules
 
 @NgModule({
   declarations: [AppComponent],

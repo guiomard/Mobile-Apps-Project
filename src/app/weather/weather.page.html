@@ -22,6 +22,10 @@
     <ion-button size="default" slot="end" (click)="onEnter()">Enter</ion-button>
   </ion-item>
 
+  <!-- this is where the online data brought over from services is called on
+  I thought I might as well use the site's weather icons seeing as they're avaliable
+  since most of them are white clouds they look better when using your system's "dark mode"
+  I considered changing the app's colour scheme to be permanently dark but decided against it-->
   <ion-item *ngFor="let weather of weatherData">
     <img height="100" width="100" src="https://openweathermap.org/img/wn/{{ weather.icon }}@2x.png">
     <h3>{{weather.main}}, {{weather.description}}</h3>
@@ -30,6 +34,7 @@
 
 <ion-footer>
   <ion-item>
-    <img slot="end" height="50px" src="https://openweathermap.org/themes/openweathermap/assets/img/openweather-negative-logo-RGB.png">
+    <img slot="end" height="50px"
+      src="https://openweathermap.org/themes/openweathermap/assets/img/openweather-negative-logo-RGB.png">
   </ion-item>
 </ion-footer>

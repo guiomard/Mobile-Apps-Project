@@ -35,7 +35,7 @@ export class ForecastPage implements OnInit {
     )
   }
 
-  onEnter(): void {
+  /*onEnter(): void {
     this.location = this.entry;
     this.dataService.GetForecastData(this.entry).subscribe(
       (data) => {
@@ -43,6 +43,6 @@ export class ForecastPage implements OnInit {
         console.log(this.forecastData);
       }
     )
-  }
+  }*/
 
 }

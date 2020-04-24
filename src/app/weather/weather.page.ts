@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../Services/data.service'
 import { Storage } from '@ionic/storage'
+//need to import DataServices for this one since it calls on its methods
 
 @Component({
   selector: 'app-weather',
@@ -35,6 +36,7 @@ export class WeatherPage implements OnInit {
     )
   }
 
+  //clicking the button triggers this, it sends off whatever was entered  to the method in services and stores the data it gets back
   onEnter(): void {
     this.location = this.entry;
     this.dataService.GetWeatherData(this.entry).subscribe(

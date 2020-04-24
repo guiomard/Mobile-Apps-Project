@@ -4,6 +4,7 @@
       <ion-back-button></ion-back-button>
     </ion-buttons>
     <ion-title><h1>Weather Application Home Menu</h1></ion-title>
+    <!--I tried to make the little avatar up here be randomised between a few different icons but I couldn't get it working-->
     <ion-chip slot="end">
       <ion-avatar *ngFor="let weather of weatherData">
         <img src="https://openweathermap.org/img/wn/{{ weather.icon }}@2x.png">
@@ -25,7 +26,7 @@
     <ion-item [routerLink]="['/maps']"><h2>View weather maps</h2></ion-item>
   </ion-list>
 </ion-content>
-
+<!--the footer is simply there for stylistic purposes-->
 <ion-footer>
   <ion-item>
     <img slot="end" height="50px" src="https://openweathermap.org/themes/openweathermap/assets/img/openweather-negative-logo-RGB.png">

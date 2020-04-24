@@ -10,7 +10,6 @@ import { Storage } from '@ionic/storage'
 })
 export class GeolocationPage implements OnInit {
   
-  weatherData: any = [];
   weatherDataCoord: any = [];
   userName:String;
   location:String;

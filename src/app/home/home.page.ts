@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { DataService } from '../Services/data.service'
 import { Storage } from '@ionic/storage';
 
 @Component({
@@ -9,20 +8,13 @@ import { Storage } from '@ionic/storage';
 })
 export class HomePage implements OnInit {
 
-  weatherData: any = [];
   entry:String;
   userName:String;
 
-  constructor(private dataService: DataService, private storage: Storage) { }
+  constructor( private storage: Storage) { }
 
+  //every page checks to see if there's a username on file so that it can be displayed on the top right
   ngOnInit(): void {
-    this.dataService.GetWeatherData("Galway").subscribe(
-      (data) => {
-        this.weatherData = data.weather;
-        console.log(this.weatherData);
-      }
-    )
-
     this.storage.get("name").then(
       (data) => {
         if (data==null){
@@ -40,6 +32,10 @@ export class HomePage implements OnInit {
   }
 
   onEnter(): void {
+    //I have the name transfer from one variable to another so that changing it in the textbox doesn't immediately change it up above
+    //having the name  change triggered by an additional button press is more professional looking and also allows the ion-chip to change size to fit the entered name
+    //the username then of course gets sent to local storage for use across the rest of the app
+    //it doesn't really do anything and is just ceremonial though
     this.userName = this.entry;
     this.storage.set("name", this.entry);
     console.log(this.entry);

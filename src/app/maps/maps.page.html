@@ -13,6 +13,7 @@
   </ion-toolbar>
 </ion-header>
 
+<!--A radio option list seemed like the most fitting way to display a variety of exclusionary options-->
 <ion-content>
   <ion-list>
     <ion-radio-group [(ngModel)]='mapType'>
@@ -43,6 +44,7 @@
       </ion-item>
     </ion-radio-group>
   </ion-list>
+  <!--This was a lot more straight-forward to implment than I first thought it'd be, doesn't even need a method-->
   <ion-item>
     <img src="https://tile.openweathermap.org/map/{{mapType}}/0/0/0.png?appid=ba5c6aa709bd7f88b050b9a75f80ce61">
   </ion-item>
